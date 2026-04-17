@@ -5,7 +5,7 @@ describe('ProductService', () => {
 
   it('formats product price', () => {
     const product = { name: 'Widget', priceCents: 999 };
-    expect(service.getDisplayPrice(product)).toBe('USD 9.99');
+    expect(service.getDisplayPrice(product)).toBe('$9.99');
   });
 
   it('returns product list', () => {
