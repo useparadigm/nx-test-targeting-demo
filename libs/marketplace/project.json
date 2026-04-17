@@ -1,0 +1,13 @@
+{
+  "name": "marketplace",
+  "sourceRoot": "libs/marketplace/src",
+  "projectType": "library",
+  "targets": {
+    "test": {
+      "executor": "@nx/jest:jest",
+      "options": {
+        "jestConfig": "libs/marketplace/jest.config.ts"
+      }
+    }
+  }
+}

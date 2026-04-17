@@ -1,0 +1,13 @@
+{
+  "name": "shared",
+  "sourceRoot": "libs/shared/src",
+  "projectType": "library",
+  "targets": {
+    "test": {
+      "executor": "@nx/jest:jest",
+      "options": {
+        "jestConfig": "libs/shared/jest.config.ts"
+      }
+    }
+  }
+}
