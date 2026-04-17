@@ -6,6 +6,6 @@ describe('CatalogController', () => {
     const catalog = controller.getCatalog();
 
     expect(catalog).toHaveLength(2);
-    expect(catalog[0].displayPrice).toContain('USD');
+    expect(catalog[0].displayPrice).toContain('$');
   });
 });
