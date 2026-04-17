@@ -1,0 +1,13 @@
+{
+  "name": "nx-test-targeting-demo",
+  "private": true,
+  "devDependencies": {
+    "@nx/jest": "^20.0.0",
+    "@types/jest": "^29.5.0",
+    "jest": "^29.7.0",
+    "nx": "^20.0.0",
+    "ts-jest": "^29.2.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.0"
+  }
+}

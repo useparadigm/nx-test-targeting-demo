@@ -11,27 +11,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Full history needed for git diff
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - run: npm install
 
       - uses: astral-sh/setup-uv@v4
 
       - name: Install code-governance
-        run: uv tool install code-governance
+        run: uv tool install "code-governance @ git+https://github.com/useparadigm/code-governance.git@feat/affected-tests"
 
       - name: Analyze affected tests
-        run: |
-          echo "## Changed files and affected tests"
-          echo ""
-          governance-ast --affected-tests . --base-ref origin/main --nx
-          echo ""
+        run: governance-ast --affected-tests . --base-ref origin/main --nx
 
-      - name: Show affected tests (JSON)
-        run: governance-ast --affected-tests . --base-ref origin/main --nx -f json
-
-      # Uncomment to actually run the tests via NX:
-      # - uses: actions/setup-node@v4
-      #   with:
-      #     node-version: 20
-      # - run: npm ci
-      # - name: Run affected tests
-      #   run: governance-ast --affected-tests . --base-ref origin/main --nx --run
+      - name: Run affected tests
+        run: governance-ast --affected-tests . --base-ref origin/main --nx --run
